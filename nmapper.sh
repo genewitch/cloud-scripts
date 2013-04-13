@@ -1,7 +1,7 @@
 #!/bin/bash -x
 ################################
 #
-# BY-CC-NA CC license version 2.0 or greater.
+# BY-NC-SA CC license version 2.0 or greater.
 # 
 # Fetches the "latest.zip" zipped list of IPs from s3 bucket (or other URI)
 # Compares to last known list after unzipping contents and stripping the "ip_address" line.
