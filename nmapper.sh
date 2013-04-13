@@ -3,6 +3,7 @@
 #
 # BY-NC-SA CC license version 2.0 or greater.
 # 
+# This scanner is just to quickly convert ip addresses into hostnames if possible.
 # Fetches the "latest.zip" zipped list of IPs from s3 bucket (or other URI)
 # Compares to last known list after unzipping contents and stripping the "ip_address" line.
 # If the latest zip is newer than our data, run nmap scan style list, 
