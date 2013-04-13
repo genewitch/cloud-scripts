@@ -5,8 +5,10 @@
 # 
 # Fetches the "latest.zip" zipped list of IPs from s3 bucket (or other URI)
 # Compares to last known list after unzipping contents and stripping the "ip_address" line.
-# If the latest zip is newer than our data, run nmap scan style list, input list latest, don't ping, and output to XML in webroot.
+# If the latest zip is newer than our data, run nmap scan style list, 
+# input list latest, don't ping, and output to XML in webroot.
 # 
+###############################
 
 # Fetch latest.zip.
 ## change URI to get from someplace else.
