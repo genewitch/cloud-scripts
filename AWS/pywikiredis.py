@@ -1,17 +1,21 @@
 import xml.sax
 import string
 import redis
-
+import re
 
 
 def injectRedis(rInstance, textString):
         "increments redis object's key for each word in textString"
-        for (word) in stringToList(textString):
+        templist = stripNonWhitespace(textString)
+        for (word) in templist:
                 rInstance.incr(word)
 
 def stringToList(string):
         "makes a list of words from a string"
         return string.split(" ")
+
+def stripNonWhitespace(tString):
+        return re.findall("\w*", tString)
 
 def normalize_whitespace(text):
         "Remove redundant whitespace from a string"
@@ -47,4 +51,3 @@ r = redis.Redis("localhost")
 parser = xml.sax.make_parser()
 parser.setContentHandler(xHandler())
 parser.parse(open("enwiki-latest-pages-articles.xml","r"))
-
