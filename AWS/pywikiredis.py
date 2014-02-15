@@ -15,6 +15,7 @@ def stringToList(string):
         return string.split(" ")
 
 def stripNonWhitespace(tString):
+        "Added to stop redis from crashing from OOM. KEYS() works now, too."
         return re.findall("\w*", tString)
 
 def normalize_whitespace(text):
