@@ -16,7 +16,8 @@ def stringToList(string):
 
 def stripNonWhitespace(tString):
         "Added to stop redis from crashing from OOM. KEYS() works now, too."
-        return re.findall("\w*", tString)
+        " \w was not working as i intended so trying to fix now"
+        return re.findall("[A-Za-z]+", tString)
 
 def normalize_whitespace(text):
         "Remove redundant whitespace from a string"
@@ -48,7 +49,7 @@ class xHandler(xml.sax.ContentHandler):
                         injectRedis(r, self.textArea)
 
 #main
-r = redis.Redis("localhost")
+r = redis.Redis("localhost", db=1)
 parser = xml.sax.make_parser()
 parser.setContentHandler(xHandler())
-parser.parse(open("enwiki-latest-pages-articles.xml","r"))
+parser.parse(open("enwiki-20130204-pages-articles.xml","r"))
