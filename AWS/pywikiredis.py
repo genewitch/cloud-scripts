@@ -4,11 +4,11 @@ import redis
 import re
 
 
-def injectRedis(rInstance, textString):
+def injectPipe(rInstance, textString):
         "increments redis object's key for each word in textString"
         templist = stripNonWhitespace(textString)
         for (word) in templist:
-                rInstance.incr(word)
+                rInstance.incr(namespaces + word)
 
 def stringToList(string):
         "makes a list of words from a string"
@@ -46,10 +46,13 @@ class xHandler(xml.sax.ContentHandler):
                         #debug print
 #                        print self.textArea.split(" ", 10)
                         #Actual output
-                        injectRedis(r, self.textArea)
+                        injectPipe(pipe, self.textArea)
+                        pipe.execute()
 
 #main
-r = redis.Redis("localhost", db=1)
+namespaces = "m8oevj:"
+r = redis.Redis("localhost", db=0)
+pipe = r.pipeline()
 parser = xml.sax.make_parser()
 parser.setContentHandler(xHandler())
 parser.parse(open("enwiki-20130204-pages-articles.xml","r"))
