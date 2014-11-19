@@ -1,8 +1,8 @@
 import redis
 import string
 
-counter=0
-left=0
+counter = 0
+left = 0
 toggle = 1
 """r = redis.StrictRedis('localhost')"""
 r = redis.StrictRedis(unix_socket_path='/tmp/redis.sock')
