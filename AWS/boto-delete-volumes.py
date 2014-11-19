@@ -2,8 +2,8 @@ import boto.ec2
 import string
 
 conn = boto.ec2.connect_to_region("eu-west-1",
-    aws_access_key_id='AKIAIAJ2KOPEIAYBNV4A',
-    aws_secret_access_key='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')
+    aws_access_key_id='',
+    aws_secret_access_key='')
 
 volumeList = conn.get_all_volumes()
 """print(len(volumeList))
