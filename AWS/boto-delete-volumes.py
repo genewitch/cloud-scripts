@@ -1,7 +1,7 @@
 import boto.ec2
 import string
 
-conn = boto.ec2.connect_to_region("us-west-2",
+conn = boto.ec2.connect_to_region("eu-west-1",
     aws_access_key_id='AKIAIAJ2KOPEIAYBNV4A',
     aws_secret_access_key='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')
 
@@ -12,5 +12,5 @@ print(volumeList)"""
 for vol in volumeList:
     if vol.status == "in-use":
         continue
-    print(vol.status)
-    print(vol)
+    if '2014-11' in str(vol.create_time):
+        print(vol.status + ", create_time:" + vol.create_time)
