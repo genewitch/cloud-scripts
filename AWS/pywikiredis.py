@@ -5,24 +5,34 @@ import re
 
 
 def injectPipe(rInstance, textString):
-        "increments redis object's key for each word in textString"
+       """increments redis object's key for each word in textString
+                Not going to bother fixing globals now.
+
+                input:  wiki article text (literally)
+                output: a more full pipeline
+
+        """
         global counter
         templist = stripNonWhitespace(textString)
         for (word) in templist:
                 rInstance.incr(namespaces + word)
                 counter = counter + 1
 
-def stringToList(string):
-        "makes a list of words from a string"
-        return string.split(" ")
-
 def stripNonWhitespace(tString):
-        "Added to stop redis from crashing from OOM. KEYS() works now, too."
-        " \w was not working as i intended so trying to fix now"
+        """Added to stop redis from crashing from OOM. KEYS() works now, too.
+                \w was not working as i intended
+                This still leaves wordsjammedtogetherdude items;
+                software that uses the redis db to analyze this could
+                find "real" words. Next project!
+        """
+
         return re.findall("[A-Za-z]+", tString)
 
 def normalize_whitespace(text):
-        "Remove redundant whitespace from a string"
+        """Remove redundant whitespace from a string
+           i don't know how this works, offhand.
+        """
+
         return ' '.join(text.split())
 
 class xHandler(xml.sax.ContentHandler):
