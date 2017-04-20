@@ -8,6 +8,7 @@ if [ ! -f /home/ubuntu/Up1/server/server.conf ]; then
         mount -a
 
         apt-get install nodejs npm
+        cd /home/ubuntu
         git clone https://github.com/Upload/Up1
 
         cd Up1
