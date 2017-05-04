@@ -104,3 +104,15 @@ echo $WPAPW
 #'newPassword'; If 5.6 or earlier, do: \
 #SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newPassword'); \
 #Remove the added line from my.cnf and restart mysqld.
+
+#
+# End of your custom one-time commands
+##
+
+
+##
+# This script will run once
+# If you would like to run it again.  run 'chkconfig run-once on' then reboot.
+#
+chkconfig run-once off
+chkconfig --del run-once
