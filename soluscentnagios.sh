@@ -74,5 +74,6 @@ Thank you!
 
 EOF
 
+#MUST BE FIXED SOMEHOW TO EMAIL THE CUSTOMER INSTEAD OF GENEWITCH/
 mutt -s "Welcome to Nagios, Hosted by Cloudmain" genewitch@gmail.com < email.txt
 
