@@ -18,8 +18,5 @@ yum -y install nagios nagios-plugins-all nagios-plugins-nrpe nrpe php httpd
 chkconfig httpd on && chkconfig nagios on
 service httpd start && service nagios start
 
-# Some swap (2GB)
-dd if=/dev/zero of=/swap bs=1024 count=2097152
-mkswap /swap && chown root. /swap && chmod 0600 /swap && swapon /swap
-echo /swap swap swap defaults 0 0 >> /etc/fstab
-echo vm.swappiness = 0 >> /etc/sysctl.conf && sysctl -p
+# Some swap **is not needed since the hypervisor does this anyhow
+
