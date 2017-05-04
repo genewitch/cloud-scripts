@@ -44,7 +44,7 @@ chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
 /etc/init.d/httpd start
 
 NAPW=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32};echo;`
-htpasswd –cb /usr/local/nagios/etc/htpasswd.users nagiosadmin 
+htpasswd -cb /usr/local/nagios/etc/htpasswd.users nagiosadmin ${NAPW}
 PUBLICIP=`ifconfig venet0:0 | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" |head -1`
 
 cd /root
