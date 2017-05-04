@@ -10,6 +10,7 @@
 # then make sure they come up after boot
 # and start both services
 cd /root
+rm -rf /etc/yum.repos.d/vz.repo
 #rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 #rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 #yum -y update
