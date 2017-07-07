@@ -1,5 +1,8 @@
 # rdrand-tmpfs-writer.py :
 #
+# pre-requesites:
+#         root# easy_install rdrand
+#
 #  this script, specifically, will write 256000000 characters to stdout. use:
 #
 #         ../rdrand-tmpfs-writer.py > /tmp/foo/rdrand.out 
