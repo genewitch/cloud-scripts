@@ -18,9 +18,9 @@ starting = r.zcard(zkey)
 
 while toggle:
 
-    left, right = r.scan(left, match="4:*")
-    for word in right:
-        score = r.get(word)
+    left, right = r.scan(left, match="4:*")  #redis SCAN returns a cursor (left) and
+    for word in right:                       # a list of elements (right), and you can give it a pattern
+        score = r.get(word)                  # (match), aslo you can use "count" as an option.
         pipe.zadd(zkey, float(score), word)
         counter = counter + 1
 
