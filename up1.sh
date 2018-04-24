@@ -3,11 +3,11 @@
 
 if [ ! -f /home/ubuntu/Up1/server/server.conf ]; then
         #uses tmpfs, change this if you want
-        echo "tmpfs /mnt/knoxious      tmpfs   size=200M,mode=0755     0       0" > /etc/fstab
+        echo "tmpfs /mnt/knoxious      tmpfs   size=200M,mode=0755     0       0" >> /etc/fstab
         mkdir /mnt/knoxious
         mount -a
 
-        apt-get install nodejs npm
+        apt-get install -y nodejs npm
         cd /home/ubuntu
         git clone https://github.com/Upload/Up1
 
