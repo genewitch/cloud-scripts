@@ -7,6 +7,7 @@ if [ ! -f /home/ubuntu/Up1/server/server.conf ]; then
         mkdir /mnt/knoxious
         mount -a
 
+        apt-get update
         apt-get install -y nodejs npm
         cd /home/ubuntu
         git clone https://github.com/Upload/Up1
